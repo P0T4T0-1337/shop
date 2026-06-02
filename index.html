@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>2B2T.XIN 出售低价物资和顶级参数 - 创造你的冒险</title>
-    <!-- 引入 Google Fonts 提升字体质感 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (免费图标库) -->
+    <title>土豆's 2b2t shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -14,732 +12,524 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
+            background-color: #f5f7fc;
             font-family: 'Inter', sans-serif;
-            background-color: #0a0c12;
-            color: #eef2ff;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            color: #1e293b;
+            line-height: 1.45;
+            padding: 24px 20px;
         }
-
-        /* 自定义滚动条 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1e1f2c;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ff4d6d;
-            border-radius: 10px;
-        }
-
-        /* 全局容器 */
-        .container {
-            max-width: 1280px;
+        .shop-container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: 1px solid #e9edf2;
         }
-
-        /* 导航栏 */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(10, 12, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 77, 109, 0.3);
-            padding: 18px 0;
-        }
-        .nav-content {
+        .top-bar {
+            background: #fff7ed;
+            border-bottom: 1px solid #ffe4c4;
+            padding: 14px 24px;
+            font-size: 0.85rem;
+            color: #b45309;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
         }
-        .logo {
+        .announcement i {
+            margin-right: 6px;
+            color: #f97316;
+        }
+        .contact-email {
+            font-family: monospace;
+            background: #fff0e0;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+        .header-main {
+            padding: 20px 28px 12px 28px;
+            border-bottom: 1px solid #edf2f7;
+            background: white;
+        }
+        .shop-title {
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #ff4d6d, #ffb347);
+            background: linear-gradient(135deg, #2d3e50, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .logo i {
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-            color: #ff4d6d;
-            margin-right: 6px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            list-style: none;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #eef2ff;
-            font-weight: 500;
-            transition: 0.2s;
-            font-size: 1rem;
-        }
-        .nav-links a:hover {
-            color: #ff4d6d;
-        }
-        .btn-outline-light {
-            border: 1px solid #ff4d6d;
-            padding: 8px 20px;
-            border-radius: 40px;
-            background: transparent;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-        .btn-outline-light:hover {
-            background: #ff4d6d;
-            color: #0a0c12;
-            border-color: #ff4d6d;
-        }
-
-        /* 按钮通用样式 */
-        .btn-primary {
-            background: #ff4d6d;
-            border: none;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px -10px #ff4d6d;
-            background: #ff1e48;
+        .shop-title i {
+            background: none;
+            color: #7c3aed;
         }
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid #a0a5c0;
-            color: #eef2ff;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: 0.2s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .btn-secondary:hover {
-            border-color: #ff4d6d;
-            background: rgba(255, 77, 109, 0.1);
-        }
-
-        /* Hero 区域 */
-        .hero {
-            padding: 80px 0 100px;
-            background: radial-gradient(circle at 10% 30%, #12141f, #05070c);
-        }
-        .hero-grid {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 48px;
-        }
-        .hero-content {
-            flex: 1;
-        }
-        .hero-badge {
-            background: rgba(255, 77, 109, 0.2);
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 50px;
+        .warning-note {
+            background: #fef2e8;
+            margin-top: 16px;
+            padding: 12px 18px;
+            border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 600;
-            color: #ff9eb0;
-            margin-bottom: 20px;
+            color: #9b2c1d;
+            border-left: 4px solid #ff8c42;
+            line-height: 1.5;
         }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #ffb7c5);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #cbd5e6;
-            max-width: 550px;
-            margin-bottom: 32px;
-        }
-        .hero-buttons {
+        .two-columns {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
         }
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+        .sidebar {
+            width: 260px;
+            background: #fafcff;
+            border-right: 1px solid #eef2f8;
+            padding: 24px 0 24px 0;
         }
-        .game-mock {
-            background: linear-gradient(145deg, #1f2233, #131520);
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,77,109,0.3);
+        .category-title {
+            font-weight: 700;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            color: #4a5a72;
+            letter-spacing: 0.5px;
         }
-        .game-mock img {
-            max-width: 100%;
-            border-radius: 28px;
-            display: block;
-            width: 400px;
-            height: auto;
+        .cat-list {
+            list-style: none;
+            margin-bottom: 28px;
         }
-        .mock-placeholder {
-            background: linear-gradient(120deg, #262a3e, #181c2c);
-            width: 400px;
-            height: 260px;
-            border-radius: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 12px;
-            color: #ff9eb0;
-            font-weight: bold;
-        }
-        .mock-placeholder i {
-            font-size: 64px;
-        }
-
-        /* 游戏特色区 */
-        .features {
-            padding: 90px 0;
-            background: #0c0e16;
-        }
-        .section-title {
-            text-align: center;
-            font-size: 2.4rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-        }
-        .section-sub {
-            text-align: center;
-            color: #9ca3bf;
-            margin-bottom: 56px;
-            font-size: 1.1rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-        }
-        .feature-card {
-            background: #12141f;
-            padding: 32px 24px;
-            border-radius: 32px;
-            text-align: center;
-            transition: all 0.25s;
-            border: 1px solid #232636;
-        }
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: #ff4d6d;
-            box-shadow: 0 18px 30px -12px rgba(0,0,0,0.6);
-        }
-        .feature-icon {
-            font-size: 3rem;
-            color: #ff4d6d;
-            margin-bottom: 20px;
-        }
-        .feature-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-        .feature-card p {
-            color: #b9c0dc;
-        }
-
-        /* 游戏产品展示区 (核心) */
-        .games-showcase {
-            padding: 80px 0;
-            background: #0a0c12;
-        }
-        .product-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 80px;
-        }
-        .game-product {
-            background: linear-gradient(135deg, #11131f, #0d0f18);
-            border-radius: 48px;
-            overflow: hidden;
-            border: 1px solid #282e44;
+        .cat-list li {
+            padding: 8px 24px;
+            font-size: 0.95rem;
+            cursor: pointer;
             transition: 0.2s;
-        }
-        .product-inner {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .product-media {
-            flex: 1.2;
-            min-width: 260px;
-            background: #03040a;
+            color: #2c3e50;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
+            gap: 12px;
         }
-        .game-preview {
-            background: #1a1e30;
-            width: 100%;
-            max-width: 320px;
-            border-radius: 28px;
-            padding: 20px 16px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        .cat-list li i {
+            width: 22px;
+            color: #7c8ba0;
         }
-        .game-preview i {
-            font-size: 80px;
-            color: #ff4d6d;
-            margin-bottom: 16px;
+        .cat-list li.active, .cat-list li:hover {
+            background: #ede9fe;
+            color: #6d28d9;
+            border-left: 3px solid #8b5cf6;
+            padding-left: 21px;
         }
-        .game-preview h4 {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
+        .sub-brand {
+            margin-top: 20px;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 16px;
         }
-        .product-info {
+        .content-area {
             flex: 1;
-            padding: 48px 40px;
+            padding: 24px 28px;
+            background: #ffffff;
         }
-        .product-category {
+        .breadcrumb {
             font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #ff9eb0;
-            font-weight: 600;
+            color: #5b6e8c;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0f2f5;
+            padding-bottom: 12px;
         }
-        .product-info h2 {
-            font-size: 2.4rem;
-            margin: 12px 0 16px;
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 16px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            border: 1px solid #ecf3fa;
+            padding: 20px;
+            transition: 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+            border-color: #d9c9ff;
+        }
+        .product-icon {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+            color: #7c3aed;
+            text-align: center;
+        }
+        .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 0 auto 12px auto;
+            display: block;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 4px;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         .price {
-            font-size: 2.2rem;
             font-weight: 800;
-            color: #ffb347;
-            margin: 16px 0 20px;
+            color: #e67e22;
+            font-size: 1.25rem;
         }
-        .price small {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #9ca3bf;
+        .desc {
+            font-size: 0.8rem;
+            color: #4b556d;
+            margin: 12px 0;
+            line-height: 1.45;
         }
-        .product-description {
-            color: #cdd5f0;
-            margin-bottom: 28px;
-            line-height: 1.6;
-        }
-        .product-meta {
+        .badges {
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
             flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0 16px;
         }
-        .meta-badge {
-            background: #1a1e30;
-            padding: 6px 14px;
+        .badge {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #334155;
+        }
+        .buy-btn {
+            background: #8b5cf6;
+            width: 100%;
+            border: none;
+            padding: 10px;
             border-radius: 40px;
-            font-size: 0.85rem;
-            display: inline-flex;
+            font-weight: 700;
+            color: white;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-        }
-
-        /* 购买弹窗 (简单的模态框) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background: #12141f;
-            max-width: 480px;
-            width: 90%;
-            border-radius: 40px;
-            padding: 32px;
-            text-align: center;
-            border: 1px solid #ff4d6d;
-            position: relative;
-        }
-        .modal-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 16px;
-        }
-        .modal-content p {
-            margin-bottom: 24px;
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            font-size: 28px;
             cursor: pointer;
-            color: #aaa;
-        }
-        .close-modal:hover {
-            color: #ff4d6d;
-        }
-        .purchase-options {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        /* 关于工作室 */
-        .about {
-            padding: 80px 0;
-            background: #0c0e16;
-            text-align: center;
-        }
-        .about-content {
-            max-width: 760px;
-            margin: 0 auto;
-        }
-        .about-content p {
-            font-size: 1.12rem;
-            color: #c2cae6;
-            margin: 20px 0;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            margin-top: 32px;
-        }
-        .social-links a {
-            color: #eef2ff;
-            font-size: 1.6rem;
             transition: 0.2s;
-        }
-        .social-links a:hover {
-            color: #ff4d6d;
-            transform: scale(1.1);
-        }
-
-        /* 页脚 */
-        .footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #1f2235;
-            color: #7f89b0;
             font-size: 0.9rem;
         }
-        @media (max-width: 800px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+        .buy-btn:hover {
+            background: #6d28d9;
+            transform: scale(0.98);
+        }
+        .contact-qq {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            background: #1e293b;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            z-index: 99;
+            border: none;
+            font-size: 0.9rem;
+        }
+        .contact-qq i {
+            font-size: 1.3rem;
+            color: #60a5fa;
+        }
+        .chat-bubble {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #8b5cf6;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            z-index: 99;
+            border: none;
+        }
+        @media (max-width: 780px) {
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #edf2f7;
             }
-            .product-inner {
+            .two-columns {
                 flex-direction: column;
             }
-            .navbar .nav-links {
-                gap: 18px;
+            .contact-qq, .chat-bubble {
+                padding: 8px 16px;
+                font-size: 0.8rem;
             }
-            .container {
-                padding: 0 20px;
+            .product-img {
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- 导航栏 -->
-<nav class="navbar">
-    <div class="container nav-content">
-        <div class="logo">
-            <i class="fas fa-dice-d6"></i> PixelForge
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#games">物资</a></li>
-            <li><a href="#features">参数</a></li>
-            <li><a href="#" class="btn-outline-light" id="navDemoBtn"><i class="fas fa-shopping-cart"></i> 商店</a></li>
-        </ul>
+<div class="shop-container">
+    <!-- 顶部公告栏 -->
+    <div class="top-bar">
+        <div class="announcement"><i class="fas fa-exclamation-triangle"></i> 请Ctrl+D收藏本站 避免找不到！服务时间中午12到晚上12</div>
+        <div class="contact-email"><i class="far fa-envelope"></i> 售后支持: potatos@2b2t.shop</div>
     </div>
-</nav>
-
-<main>
-    <!-- P0T4T0 CFG V2 -->
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="hero-badge"><i class="fas fa-gamepad"></i> 独立匠心 · 沉浸世界</div>
-                <h1>顶级2b2t.xin<br>参数</h1>
-                <p>P0T4T0cfg 不仅有强大的水晶，0tick蜘蛛网, 更有美丽的视觉效果!</p>
-                <div class="hero-buttons">
-                    <a href="#games" class="btn-primary"><i class="fas fa-store"></i> 浏览游戏</a>
-                    <a href="#about" class="btn-secondary"><i class="fas fa-users"></i> 了解我们</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="game-mock">
-                    <div class="mock-placeholder">
-                        <i class="fas fa-crown"></i>
-                        <span>购买加QQ: 3662269122</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                </div>
-            </div>
+    <div class="header-main">
+        <div class="shop-title">
+            <i class="fas fa-seedling"></i> 土豆's 2b2t shop
         </div>
-    </section>
-
-    <!-- 游戏特色摘要 -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">为何选择我们的游戏？</h2>
-            <div class="section-sub">沉浸式体验 · 独特美学 · 社区驱动</div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-dragon"></i></div>
-                    <h3>宏大世界</h3>
-                    <p>精心设计的开放世界，每个角落都藏有故事与秘密。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-head-side-vr"></i></div>
-                    <h3>沉浸叙事</h3>
-                    <p>深度剧情 + 动人配乐，打造电影级情感体验。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-palette"></i></div>
-                    <h3>独特美术</h3>
-                    <p>手绘风格/高精度像素，每一帧都是壁纸。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-infinity"></i></div>
-                    <h3>持续更新</h3>
-                    <p>我们承诺 DLC 及免费内容，与玩家共同成长。</p>
-                </div>
-            </div>
+        <div class="warning-note">
+            <i class="fas fa-info-circle"></i> <strong>公告：</strong> 仅支持微信支付，购买请添加QQ客服:3662269122 获取赞赏码。<br>
+            无法支付/不会使用可以问客服，实在不知道买什么不清楚下单前联系客服。<br>
+            招商合作感兴趣私信QQ客服。NFA问题请私聊客服，不正确填写订单号无法售后。
         </div>
-    </section>
-
-    <!-- 核心游戏产品销售区 (两个游戏产品作为示例) -->
-    <section id="games" class="games-showcase">
-        <div class="container">
-            <h2 class="section-title">🔥 热销游戏作品</h2>
-            <div class="section-sub">立即购买，永久拥有，支持独立开发者</div>
-            <div class="product-grid">
-                <!-- 产品 1 -->
-                <div class="game-product" data-game-id="shadowblade" data-game-name="暗影之刃：重生" data-game-price="79">
-                    <div class="product-inner">
-                        <div class="product-media">
-                            <div class="game-preview">
-                                <i class="fas fa-skull"></i>
-                                <h4>暗影之刃</h4>
-                                <span>动作 · 潜行</span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-category"><i class="fas fa-trophy"></i> 年度最佳独立游戏提名</div>
-                            <h2>暗影之刃：重生</h2>
-                            <div class="price">¥79 <small>人民币</small></div>
-                            <p class="product-description">扮演影之刺客，在赛博与奇幻交织的都市中揭露远古阴谋。流畅连招+多重结局，超过15小时主线流程，还有roguelite挑战模式。</p>
-                            <div class="product-meta">
-                                <span class="meta-badge"><i class="fas fa-gamepad"></i> 单人/多人合作</span>
-                                <span class="meta-badge"><i class="fas fa-language"></i> 全中文配音</span>
-                            </div>
-                            <button class="btn-primary buy-now-btn" data-name="暗影之刃：重生" data-price="79"><i class="fas fa-shopping-cart"></i> 立即购买</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- 产品 2 -->
-                <div class="game-product" data-game-id="starforge" data-game-name="星穹铸造者" data-game-price="99">
-                    <div class="product-inner">
-                        <div class="product-media">
-                            <div class="game-preview">
-                                <i class="fas fa-rocket"></i>
-                                <h4>星穹铸造者</h4>
-                                <span>科幻 · 生存建造</span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-category"><i class="fas fa-chart-line"></i> 抢先体验 95% 好评</div>
-                            <h2>星穹铸造者</h2>
-                            <div class="price">¥99 <small>人民币</small></div>
-                            <p class="product-description">在外星星球探索资源，建立基地，解开远古文明的秘密。动态天气系统，完全可破坏环境，支持线上最多4人联机。未来更新计划包含全新种族。</p>
-                            <div class="product-meta">
-                                <span class="meta-badge"><i class="fas fa-users"></i> 在线合作</span>
-                                <span class="meta-badge"><i class="fas fa-microchip"></i> 深度科技树</span>
-                            </div>
-                            <button class="btn-primary buy-now-btn" data-name="星穹铸造者" data-price="99"><i class="fas fa-shopping-cart"></i> 立即购买</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- 可以继续添加更多游戏，为了框架整洁展示两款 -->
-            </div>
-            <div style="text-align: center; margin-top: 56px;">
-                <a href="#" class="btn-secondary" id="viewAllBtn"><i class="fas fa-arrow-right"></i> 查看全部游戏合集</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 关于工作室 -->
-    <section id="about" class="about">
-        <div class="container about-content">
-            <i class="fas fa-heart" style="font-size: 42px; color: #ff4d6d;"></i>
-            <h2 class="section-title" style="margin-top: 16px;">PixelForge 工作室</h2>
-            <p>我们是一群热爱游戏、追求艺术的开发者团队。从最初两个人的梦想，到现在推出多款备受好评的作品。我们相信，好的游戏不止是娱乐，更是连接心灵的桥梁。<br>所有收益都将投入到下一款更伟大的作品中，感谢每一位玩家的支持。</p>
-            <div class="social-links">
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                <a href="#" aria-label="Steam"><i class="fab fa-steam"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="footer">
-    <div class="container">
-        <p>© 2025 PixelForge 独立游戏工坊 | 所有游戏均为官方正版，购买后获得永久许可 | 客服邮箱: support@pixelforge.com</p>
-        <p style="margin-top: 12px;"><i class="fas fa-gamepad"></i> 用热爱创造非凡 · 您的每一次购买都是对独立游戏的最大支持</p>
     </div>
-</footer>
 
-<!-- 购买弹窗 Modal -->
-<div id="purchaseModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModalBtn">&times;</span>
-        <i class="fas fa-ticket-alt" style="font-size: 48px; color: #ffb347;"></i>
-        <h3 id="modalGameTitle">确认购买</h3>
-        <p id="modalGameDesc">您正在购买以下游戏，请选择支付方式（演示版）</p>
-        <div class="price" id="modalPriceShow" style="font-size: 1.8rem;">¥0</div>
-        <div class="purchase-options">
-            <button class="btn-primary" id="confirmPurchaseBtn"><i class="fab fa-alipay"></i> 模拟支付</button>
-            <button class="btn-secondary" id="cancelModalBtn">取消</button>
+    <div class="two-columns">
+        <!-- 左侧分类导航 -->
+        <div class="sidebar">
+            <div class="category-title"><i class="fas fa-tags"></i> 商品分类</div>
+            <ul class="cat-list">
+                <li data-cat="cfg" class="active"><i class="fas fa-code-branch"></i> 2B2T CFG</li>
+                <li data-cat="supplies"><i class="fas fa-boxes"></i> 2b2t.xin物资</li>
+            </ul>
+            <div class="sub-brand">
+                <div class="category-title"><i class="fas fa-store"></i> 土豆自营专区</div>
+                <ul class="cat-list">
+                    <li><i class="fas fa-seedling"></i> P0T4T0官方店</li>
+                    <li><i class="fas fa-tachometer-alt"></i> 2b2t.xin专供</li>
+                </ul>
+            </div>
         </div>
-        <p style="margin-top: 20px; font-size: 0.8rem; color:#98a2cf;">演示框架 · 实际接入支付需对接后端API</p>
+
+        <!-- 右侧商品展示 -->
+        <div class="content-area">
+            <div class="breadcrumb">
+                <i class="fas fa-home"></i> 首页 / <span id="currentCatName">2B2T CFG</span>
+                <span style="float: right; font-size: 0.75rem;"><i class="fab fa-weixin"></i> 微信支付·联系客服获取赞赏码</span>
+            </div>
+            <div id="productsContainer" class="products-grid">
+                <!-- 动态商品卡片 -->
+            </div>
+            <div style="margin-top: 32px; text-align: center; border-top: 1px solid #ecf3fa; padding-top: 20px; font-size:0.8rem">
+                <i class="fab fa-qq"></i> 联系客服QQ:3662269122  |  微信支付唯一渠道，请加QQ索取赞赏码，支付后截图发货
+            </div>
+        </div>
     </div>
 </div>
 
+<!-- 悬浮按钮 -->
+<div class="contact-qq" id="qqContactBtn">
+    <i class="fab fa-qq"></i> QQ客服: 3662269122
+</div>
+<div class="chat-bubble" id="chatSupportBtn">
+    <i class="fas fa-comment-dots"></i> 在线咨询
+</div>
+
 <script>
-    // 弹窗逻辑 & 购买交互
-    const modal = document.getElementById('purchaseModal');
-    const modalGameTitle = document.getElementById('modalGameTitle');
-    const modalPriceShow = document.getElementById('modalPriceShow');
-    const confirmBtn = document.getElementById('confirmPurchaseBtn');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const cancelModalBtn = document.getElementById('cancelModalBtn');
+    // ============================================================
+    // 商品数据配置区
+    // 说明：
+    // - cfg 分类只有 P0T4T0 CFG V2（使用图标）
+    // - supplies 分类为物资商品（使用本地图片，存放在 images/ 文件夹下）
+    // 更换图片：修改对应商品的 img 路径，例如 img: "images/你的图片.png"
+    // ============================================================
+    
+    const productsData = [
+        // ---------- 2B2T CFG 分类：仅 P0T4T0 CFG V2（图标） ----------
+        { 
+            id: 1, 
+            name: "P0T4T0 CFG V2", 
+            category: "cfg", 
+            price: 30, 
+            desc: "针对于2b2t.xin等NCP服务器的顶级参数。需要AlienV4和Mio Client运作。强大的水晶+WebSync，极致视觉优化, 和强力重锤!", 
+            badges: ["NCP", "AlienV4", "Mio"], 
+            useIcon: true, 
+            icon: "fas fa-bolt" 
+        },
+        
+        // ---------- 2b2t.xin物资分类（使用本地图片，图片请放入 images 文件夹）----------
+        { 
+            id: 2, name: "鞘翅盒子", category: "supplies", price: 0.35, 
+            desc: "一盒满附魔鞘翅", 
+            badges: ["飞行", "跑图"], useIcon: false, 
+            img: "images/elytra.png" 
+        },
+        { 
+            id: 3, name: "土豆的CPVP补给", category: "supplies", price: 0.3, 
+            desc: "极品配置的cpvp补给kit", 
+            badges: ["补给", "cpvp"], useIcon: false, 
+            img: "images/cpvp.png" 
+        },
+        { 
+            id: 5, name: "azhuner cpvp kit", category: "supplies", price: 0.3, 
+            desc: "阿准儿的CPVP kit", 
+            badges: ["cpvp", "kit"], useIcon: false, 
+            img: "images/azhuner.png" 
+        },
+        { 
+            id: 6, name: "爆破盒子", category: "supplies", price: 0.3, 
+            desc: "炸基地标配kit", 
+            badges: ["爆破", "TNT"], useIcon: false, 
+            img: "images/tnt.png" 
+        },
+        { 
+            id: 7, name: "烟花盒", category: "supplies", price: 0.25, 
+            desc: "烟花补给kit", 
+            badges: ["跑图", "鞘翅", "补给"], useIcon: false, 
+            img: "images/firework.png" 
+        },
+        { 
+            id: 8, name: "重锤盒", category: "supplies", price: 0.35, 
+            desc: "重锤盒子", 
+            badges: ["战斗", "装具"], useIcon: false, 
+            img: "images/mace.png" 
+        },
+        { 
+            id: 9, name: "长矛盒", category: "supplies", price: 0.35, 
+            desc: "长矛盒子", 
+            badges: ["战斗", "装具", "苍蝇"], useIcon: false, 
+            img: "images/spear.png" 
+        },
+        { 
+            id: 10, name: "地图画盲盒", category: "supplies", price: 0.5, 
+            desc: "一盒地图画 拿到什么跟土豆无关，别人配置的", 
+            badges: ["装饰", "收藏"], useIcon: false, 
+            img: "images/map.png" 
+        },
+        { 
+            id: 11, name: "32k盒", category: "supplies", price: 0.35, 
+            desc: "注*32k是拿不上手, 用不了的! 纯收藏品!", 
+            badges: ["收藏", "违禁品"], useIcon: false, 
+            img: "images/32k.png" 
+        },
+        { 
+            id: 12, name: "刷怪笼kit", category: "supplies", price: 0.35, 
+            desc: "注*刷怪笼可以拿上手，但是无法放置!", 
+            badges: ["违禁品", "收藏品"], useIcon: false, 
+            img: "images/spawner.png" 
+        },
+        { 
+            id: 13, name: "重锤/长矛混合kit", category: "supplies", price: 0.35, 
+            desc: "就是一半重锤一半长矛", 
+            badges: ["战斗", "装具", "亖苍蝇"], useIcon: false, 
+            img: "images/mix.png" 
+        },
+        { 
+            id: 14, name: "一箱盲盒", category: "supplies", price: 6, 
+            desc: "一箱子随机kit", 
+            badges: ["随机", "盲盒"], useIcon: false, 
+            img: "images/random.png" 
+        }
+    ];
 
-    let currentPurchase = { name: '', price: 0 };
+    const catMap = {
+        cfg: "2B2T CFG",
+        supplies: "2b2t.xin物资"
+    };
 
-    function openPurchaseModal(gameName, gamePrice) {
-        currentPurchase.name = gameName;
-        currentPurchase.price = gamePrice;
-        modalGameTitle.innerText = `购买 ${gameName}`;
-        modalPriceShow.innerHTML = `¥${gamePrice} <small>人民币</small>`;
-        modal.style.display = 'flex';
-    }
+    let currentCategory = "cfg";
 
-    function closeModal() {
-        modal.style.display = 'none';
-    }
-
-    // 监听所有购买按钮
-    const buyButtons = document.querySelectorAll('.buy-now-btn');
-    buyButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const gameName = btn.getAttribute('data-name');
-            const price = parseInt(btn.getAttribute('data-price'));
-            if (gameName && price) {
-                openPurchaseModal(gameName, price);
+    // 渲染商品卡片
+    function renderProducts(category) {
+        const container = document.getElementById('productsContainer');
+        const filtered = productsData.filter(p => p.category === category);
+        if (filtered.length === 0) {
+            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-box-open fa-2x"></i><p>暂无商品，请咨询QQ客服</p></div>`;
+            return;
+        }
+        
+        container.innerHTML = filtered.map(product => {
+            // 根据 useIcon 决定显示图标还是图片
+            let mediaHtml = '';
+            if (product.useIcon) {
+                mediaHtml = `<div class="product-icon"><i class="${product.icon}"></i></div>`;
             } else {
-                // 容错：尝试从父级获取
-                const productDiv = btn.closest('.game-product');
-                if(productDiv) {
-                    const nameElem = productDiv.querySelector('.product-info h2')?.innerText;
-                    const priceElem = productDiv.querySelector('.price')?.innerText;
-                    let extractedPrice = 79;
-                    if(priceElem) {
-                        const match = priceElem.match(/¥(\d+)/);
-                        if(match) extractedPrice = parseInt(match[1]);
-                    }
-                    openPurchaseModal(nameElem || '独立游戏', extractedPrice);
-                }
+                const imgUrl = product.img || "https://picsum.photos/id/104/100/100";
+                mediaHtml = `<img class="product-img" src="${imgUrl}" alt="${product.name}" loading="lazy" onerror="this.src='https://picsum.photos/id/26/100/100'">`;
             }
-        });
-    });
+            
+            return `
+            <div class="product-card" data-id="${product.id}">
+                ${mediaHtml}
+                <div class="product-title">
+                    <span>${product.name}</span>
+                    <span class="price">¥${product.price}</span>
+                </div>
+                <div class="desc">${product.desc}</div>
+                <div class="badges">
+                    ${product.badges.map(b => `<span class="badge"><i class="fas fa-check-circle"></i> ${b}</span>`).join('')}
+                </div>
+                <button class="buy-btn" data-name="${product.name}" data-price="${product.price}"><i class="fab fa-weixin"></i> 微信购买</button>
+            </div>
+            `;
+        }).join('');
 
-    // 确认购买模拟提示
-    confirmBtn.addEventListener('click', () => {
-        if(currentPurchase.name) {
-            alert(`✨ 感谢您的支持！\n您已成功购买《${currentPurchase.name}》，金额 ¥${currentPurchase.price}\n（演示模式，实际将跳转至支付网关或生成激活码）`);
-            closeModal();
-            // 扩展: 可以跳转结账页面，这里模拟友好提示
-        } else {
-            closeModal();
+        // 绑定购买事件：提示联系QQ
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const name = btn.getAttribute('data-name');
+                const price = btn.getAttribute('data-price');
+                alert(`【${name}】 价格: ¥${price}\n\n请添加QQ客服: 3662269122 获取微信赞赏码进行支付。\n支付完成后请发送截图给客服，客服核对后发货。\n\n虚拟商品不退款，下单前请确认。`);
+            });
+        });
+    }
+
+    // 分类切换
+    const catItems = document.querySelectorAll('.cat-list li');
+    catItems.forEach(item => {
+        const catVal = item.getAttribute('data-cat');
+        if (catVal && (catVal === 'cfg' || catVal === 'supplies')) {
+            item.addEventListener('click', () => {
+                currentCategory = catVal;
+                catItems.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
+                document.getElementById('currentCatName').innerText = catMap[catVal];
+                renderProducts(currentCategory);
+            });
         }
     });
 
-    closeModalBtn.addEventListener('click', closeModal);
-    cancelModalBtn.addEventListener('click', closeModal);
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+    // QQ客服悬浮按钮
+    const qqBtn = document.getElementById('qqContactBtn');
+    qqBtn.addEventListener('click', () => {
+        alert("🐧 QQ客服: 3662269122\n请复制QQ号添加好友，备注“土豆shop购买”。\n支付通过微信赞赏码，请联系客服获取。");
+        window.open("tencent://message/?uin=3662269122&Site=土豆shop&Menu=yes");
     });
 
-    // 导航演示按钮唤起购买演示（可选，唤起第一个商品）
-    const navDemoBtn = document.getElementById('navDemoBtn');
-    if(navDemoBtn) {
-        navDemoBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // 演示弹窗 推荐暗影之刃
-            openPurchaseModal('暗影之刃：重生', 79);
-        });
-    }
-
-    // “查看全部游戏合集”简单提示
-    const viewAllBtn = document.getElementById('viewAllBtn');
-    if(viewAllBtn) {
-        viewAllBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('更多精彩游戏正在开发中，敬请期待！关注我们的社交账号获取首发资讯。');
-        });
-    }
-
-    // 平滑滚动锚点
-    document.querySelectorAll('.nav-links a, .hero-buttons a, .btn-secondary[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if(href && href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetEl = document.getElementById(targetId);
-                if(targetEl) {
-                    targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
+    const chatSupport = document.getElementById('chatSupportBtn');
+    chatSupport.addEventListener('click', () => {
+        alert("💬 在线咨询时间: 3:40-22:30\n如需即时帮助请直接添加QQ:3662269122 留言，客服会尽快回复。\n所有商品仅支持微信支付，请向客服索取赞赏码。");
     });
+
+    // 初始化加载 CFG 分类
+    renderProducts('cfg');
+    const defaultActive = document.querySelector('.cat-list li[data-cat="cfg"]');
+    if (defaultActive) defaultActive.classList.add('active');
+    document.getElementById('currentCatName').innerText = catMap['cfg'];
 </script>
 </body>
 </html>
