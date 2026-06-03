@@ -562,7 +562,8 @@
             if (product.useIcon) {
                 mediaHtml = `<div class="product-icon"><i class="${product.icon}"></i></div>`;
             } else {
-                const imgUrl = product.img || "https://picsum.photos/id/104/100/100";
+                // 修改：兼容 image 和 img 字段
+                const imgUrl = product.image || product.img || "https://picsum.photos/id/104/100/100";
                 mediaHtml = `<img class="product-img" src="${imgUrl}" alt="${product.name}" loading="lazy" onerror="this.src='https://picsum.photos/id/26/100/100'">`;
             }
             
