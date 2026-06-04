@@ -33,7 +33,7 @@
             background: #fff7ed;
             border-bottom: 1px solid #ffe4c4;
             padding: 14px 24px;
-            font-size: 0.91rem;
+            font-size: 0.85rem;
             color: #b45309;
             display: flex;
             flex-wrap: wrap;
@@ -50,7 +50,7 @@
             background: #fff0e0;
             padding: 4px 12px;
             border-radius: 30px;
-            font-size: 0.8121212121rem;
+            font-size: 0.8rem;
         }
         .header-main {
             padding: 20px 28px 12px 28px;
@@ -140,6 +140,33 @@
             margin-bottom: 20px;
             border-bottom: 1px solid #f0f2f5;
             padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: #7c3aed;
+            transition: 0.2s;
+        }
+        .cart-icon:hover {
+            color: #6d28d9;
+            transform: scale(1.05);
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: #e67e22;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 20px;
+            min-width: 18px;
+            text-align: center;
         }
         .products-grid {
             display: grid;
@@ -154,6 +181,7 @@
             padding: 20px;
             transition: 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            position: relative;
         }
         .product-card:hover {
             transform: translateY(-3px);
@@ -179,7 +207,6 @@
             transition: transform 0.2s ease, cursor 0.1s;
             cursor: pointer;
         }
-        /* 鼠标悬停时图片轻微放大 */
         .product-img:hover {
             transform: scale(1.7891);
         }
@@ -237,6 +264,27 @@
         .buy-btn:hover {
             background: #6d28d9;
             transform: scale(0.98);
+        }
+        .add-cart-btn {
+            background: #f1f5f9;
+            width: 100%;
+            border: none;
+            padding: 8px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+        .add-cart-btn:hover {
+            background: #e2e8f0;
+            color: #1e293b;
         }
         .contact-qq {
             position: fixed;
@@ -313,6 +361,192 @@
             font-size: 0.8rem;
             pointer-events: none;
         }
+        /* 购物车侧边栏 */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 90vw;
+            height: 100%;
+            background: white;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Inter', sans-serif;
+        }
+        .cart-sidebar.open {
+            right: 0;
+        }
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eef2f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: #fafcff;
+        }
+        .cart-header i {
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: #94a3b8;
+        }
+        .cart-header i:hover {
+            color: #ef4444;
+        }
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .cart-item-info {
+            flex: 1;
+        }
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .cart-item-price {
+            font-size: 0.8rem;
+            color: #e67e22;
+            font-weight: 600;
+        }
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .cart-item-actions button {
+            background: #f1f5f9;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .cart-item-actions button:hover {
+            background: #e2e8f0;
+        }
+        .cart-item-actions span {
+            min-width: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #eef2f8;
+            background: white;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        .checkout-btn {
+            background: #8b5cf6;
+            width: 100%;
+            border: none;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .checkout-btn:hover {
+            background: #6d28d9;
+        }
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+            color: #94a3b8;
+        }
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .cart-overlay.show {
+            display: block;
+        }
+        /* 付款码模态框 */
+        .pay-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+        .pay-modal.show {
+            display: flex;
+        }
+        .pay-content {
+            background: white;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            max-width: 90%;
+            width: 360px;
+            position: relative;
+        }
+        .pay-content img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 16px;
+            margin: 16px 0;
+        }
+        .pay-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .pay-content p {
+            color: #e67e22;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .close-pay {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+        .close-pay:hover {
+            color: #ef4444;
+        }
+        .pay-note {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 12px;
+        }
         @media (max-width: 780px) {
             .sidebar {
                 width: 100%;
@@ -329,6 +563,10 @@
             .product-img {
                 width: 70px;
                 height: 70px;
+            }
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
             }
         }
     </style>
@@ -371,8 +609,11 @@
         <!-- 右侧商品展示 -->
         <div class="content-area">
             <div class="breadcrumb">
-                <i class="fas fa-home"></i> 首页 / <span id="currentCatName">2B2T CFG</span>
-                <span style="float: right; font-size: 0.75rem;"><i class="fab fa-weixin"></i> 微信支付·联系客服获取付款码</span>
+                <span><i class="fas fa-home"></i> 首页 / <span id="currentCatName">2B2T CFG</span></span>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
             </div>
             <div id="productsContainer" class="products-grid">
                 <!-- 动态商品卡片 -->
@@ -398,13 +639,39 @@
     <div class="close-modal-hint">点击任意位置关闭</div>
 </div>
 
+<!-- 购物车侧边栏 -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <span><i class="fas fa-shopping-cart"></i> 购物车</span>
+        <i class="fas fa-times" id="closeCartBtn"></i>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+        <div class="empty-cart">购物车是空的~</div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>合计：</span>
+            <span id="cartTotalPrice">¥0.00</span>
+        </div>
+        <button class="checkout-btn" id="checkoutBtn"><i class="fab fa-weixin"></i> 去支付</button>
+    </div>
+</div>
+
+<!-- 付款码模态框 -->
+<div class="pay-modal" id="payModal">
+    <div class="pay-content">
+        <i class="fas fa-times close-pay" id="closePayBtn"></i>
+        <h3><i class="fab fa-weixin" style="color: #07c160;"></i> 微信支付</h3>
+        <p>请扫码支付</p>
+        <img src="images/pay.png" alt="微信付款码" id="payQrCode">
+        <div class="pay-note">支付完成后请截图发送给QQ客服:3662269122，客服核对后发货</div>
+    </div>
+</div>
+
 <script>
     // ============================================================
     // 商品数据配置区
-    // 说明：
-    // - cfg 分类：P0T4T0 CFG V2、MXADDON客户端
-    // - supplies 分类为物资商品（使用本地图片，存放在 images/ 文件夹下）
-    // 更换图片：修改对应商品的 img 路径，例如 img: "images/你的图片.png"
     // ============================================================
     
     const productsData = [
@@ -430,109 +697,24 @@
             image: "images/mx.png"
         },
         
-        // ---------- 2b2t.xin物资分类（使用本地图片，图片请放入 images 文件夹）----------
-        { 
-            id: 3, name: "鞘翅盒子", category: "supplies", price: 0.35, 
-            desc: "一盒满附魔鞘翅", 
-            badges: ["飞行", "跑图"], useIcon: false, 
-            img: "images/elytra.png" 
-        },
-        { 
-            id: 4, name: "土豆的CPVP补给", category: "supplies", price: 0.3, 
-            desc: "极品配置的cpvp补给kit", 
-            badges: ["补给", "cpvp"], useIcon: false, 
-            img: "images/cpvp.png" 
-        },
-        { 
-            id: 5, name: "azhuner cpvp kit", category: "supplies", price: 0.3, 
-            desc: "阿准儿的CPVP kit", 
-            badges: ["cpvp", "kit"], useIcon: false, 
-            img: "images/azhuner.png" 
-        },
-        { 
-            id: 6, name: "爆破盒子", category: "supplies", price: 0.3, 
-            desc: "炸基地标配kit", 
-            badges: ["爆破", "TNT"], useIcon: false, 
-            img: "images/tnt.png" 
-        },
-        { 
-            id: 7, name: "烟花盒", category: "supplies", price: 0.25, 
-            desc: "烟花补给kit", 
-            badges: ["跑图", "鞘翅", "补给"], useIcon: false, 
-            img: "images/firework.png" 
-        },
-        { 
-            id: 8, name: "重锤盒", category: "supplies", price: 0.35, 
-            desc: "重锤盒子", 
-            badges: ["战斗", "装具"], useIcon: false, 
-            img: "images/mace.png" 
-        },
-        { 
-            id: 9, name: "长矛盒", category: "supplies", price: 0.35, 
-            desc: "长矛盒子", 
-            badges: ["战斗", "装具", "苍蝇"], useIcon: false, 
-            img: "images/spear.png" 
-        },
-        { 
-            id: 10, name: "地图画盲盒", category: "supplies", price: 0.5, 
-            desc: "一盒地图画 拿到什么跟土豆无关，别人配置的", 
-            badges: ["装饰", "收藏"], useIcon: false, 
-            img: "images/map.png" 
-        },
-        { 
-            id: 11, name: "32k盒", category: "supplies", price: 0.35, 
-            desc: "注*32k是拿不上手, 用不了的! 纯收藏品!", 
-            badges: ["收藏", "违禁品"], useIcon: false, 
-            img: "images/32k.png" 
-        },
-        { 
-            id: 12, name: "刷怪笼kit", category: "supplies", price: 0.35, 
-            desc: "注*刷怪笼可以拿上手，但是无法放置!", 
-            badges: ["违禁品", "收藏品"], useIcon: false, 
-            img: "images/spawner.png" 
-        },
-        { 
-            id: 13, name: "重锤/长矛混合kit", category: "supplies", price: 0.35, 
-            desc: "就是一半重锤一半长矛", 
-            badges: ["战斗", "装具", "亖苍蝇"], useIcon: false, 
-            img: "images/mixed.png" 
-        },
-        { 
-            id: 14, name: "一箱盲盒", category: "supplies", price: 6, 
-            desc: "一箱子随机kit", 
-            badges: ["随机", "盲盒"], useIcon: false, 
-            img: "images/random.png" 
-        },
-        { 
-            id: 15, name: "CDF日常盒子", category: "supplies", price: 0.35, 
-            desc: "Cdf的日常kit", 
-            badges: ["日常", "装备"], useIcon: false, 
-            img: "images/zhang.png" 
-        },
-        { 
-            id: 16, name: "附魔金kit", category: "supplies", price: 0.3, 
-            desc: "附魔金苹果kit", 
-            badges: ["食物", "补给"], useIcon: false, 
-            img: "images/gap.png" 
-        },
-        { 
-            id: 17, name: "红石kit", category: "supplies", price: 0.35, 
-            desc: "一堆红石玩应", 
-            badges: ["红石", "建筑"], useIcon: false, 
-            img: "images/redstone.png" 
-        },
-        { 
-            id: 18, name: "标准装备箱", category: "supplies", price: 0.3, 
-            desc: "标准kit", 
-            badges: ["装备", "补给"], useIcon: false, 
-            img: "images/biaozhun.png" 
-        },
-        { 
-            id: 19, name: "图腾盒", category: "supplies", price: 0.3, 
-            desc: "popgod's kit", 
-            badges: ["popgod", "补给"], useIcon: false, 
-            img: "images/totem.png" 
-        }
+        // ---------- 2b2t.xin物资分类 ----------
+        { id: 3, name: "鞘翅盒子", category: "supplies", price: 0.35, desc: "一盒满附魔鞘翅", badges: ["飞行", "跑图"], useIcon: false, img: "images/elytra.png" },
+        { id: 4, name: "土豆的CPVP补给", category: "supplies", price: 0.3, desc: "极品配置的cpvp补给kit", badges: ["补给", "cpvp"], useIcon: false, img: "images/cpvp.png" },
+        { id: 5, name: "azhuner cpvp kit", category: "supplies", price: 0.3, desc: "阿准儿的CPVP kit", badges: ["cpvp", "kit"], useIcon: false, img: "images/azhuner.png" },
+        { id: 6, name: "爆破盒子", category: "supplies", price: 0.3, desc: "炸基地标配kit", badges: ["爆破", "TNT"], useIcon: false, img: "images/tnt.png" },
+        { id: 7, name: "烟花盒", category: "supplies", price: 0.25, desc: "烟花补给kit", badges: ["跑图", "鞘翅", "补给"], useIcon: false, img: "images/firework.png" },
+        { id: 8, name: "重锤盒", category: "supplies", price: 0.35, desc: "重锤盒子", badges: ["战斗", "装具"], useIcon: false, img: "images/mace.png" },
+        { id: 9, name: "长矛盒", category: "supplies", price: 0.35, desc: "长矛盒子", badges: ["战斗", "装具", "苍蝇"], useIcon: false, img: "images/spear.png" },
+        { id: 10, name: "地图画盲盒", category: "supplies", price: 0.5, desc: "一盒地图画 拿到什么跟土豆无关", badges: ["装饰", "收藏"], useIcon: false, img: "images/map.png" },
+        { id: 11, name: "32k盒", category: "supplies", price: 0.35, desc: "注*32k是拿不上手, 用不了的! 纯收藏品!", badges: ["收藏", "违禁品"], useIcon: false, img: "images/32k.png" },
+        { id: 12, name: "刷怪笼kit", category: "supplies", price: 0.35, desc: "注*刷怪笼可以拿上手，但是无法放置!", badges: ["违禁品", "收藏品"], useIcon: false, img: "images/spawner.png" },
+        { id: 13, name: "重锤/长矛混合kit", category: "supplies", price: 0.35, desc: "就是一半重锤一半长矛", badges: ["战斗", "装具", "亖苍蝇"], useIcon: false, img: "images/mixed.png" },
+        { id: 14, name: "一箱盲盒", category: "supplies", price: 6, desc: "一箱子随机kit", badges: ["随机", "盲盒"], useIcon: false, img: "images/random.png" },
+        { id: 15, name: "CDF日常盒子", category: "supplies", price: 0.35, desc: "Cdf的日常kit", badges: ["日常", "装备"], useIcon: false, img: "images/zhang.png" },
+        { id: 16, name: "附魔金kit", category: "supplies", price: 0.3, desc: "附魔金苹果kit", badges: ["食物", "补给"], useIcon: false, img: "images/gap.png" },
+        { id: 17, name: "红石kit", category: "supplies", price: 0.35, desc: "一堆红石玩应", badges: ["红石", "建筑"], useIcon: false, img: "images/redstone.png" },
+        { id: 18, name: "标准装备箱", category: "supplies", price: 0.3, desc: "标准kit", badges: ["装备", "补给"], useIcon: false, img: "images/biaozhun.png" },
+        { id: 19, name: "图腾盒", category: "supplies", price: 0.3, desc: "popgod's kit", badges: ["popgod", "补给"], useIcon: false, img: "images/totem.png" }
     ];
 
     const catMap = {
@@ -541,10 +723,155 @@
     };
 
     let currentCategory = "cfg";
+    
+    // 购物车数据
+    let cart = [];
 
-    // 获取模态框元素
+    // 获取元素
     const imageModal = document.getElementById('imageModal');
     const fullscreenImage = document.getElementById('fullscreenImage');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartCountSpan = document.getElementById('cartCount');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalPriceSpan = document.getElementById('cartTotalPrice');
+    const payModal = document.getElementById('payModal');
+
+    // 保存购物车到localStorage
+    function saveCart() {
+        localStorage.setItem('shopCart', JSON.stringify(cart));
+    }
+
+    // 加载购物车
+    function loadCart() {
+        const saved = localStorage.getItem('shopCart');
+        if (saved) {
+            cart = JSON.parse(saved);
+        }
+        updateCartUI();
+    }
+
+    // 更新购物车UI
+    function updateCartUI() {
+        const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountSpan.innerText = totalCount;
+        
+        const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cartTotalPriceSpan.innerText = `¥${totalPrice.toFixed(2)}`;
+        
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<div class="empty-cart">购物车是空的~</div>';
+            return;
+        }
+        
+        cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item" data-id="${item.id}">
+                <div class="cart-item-info">
+                    <div class="cart-item-name">${item.name}</div>
+                    <div class="cart-item-price">¥${item.price}</div>
+                </div>
+                <div class="cart-item-actions">
+                    <button class="cart-decr" data-id="${item.id}">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="cart-incr" data-id="${item.id}">+</button>
+                    <button class="cart-remove" data-id="${item.id}" style="background:#fee2e2; color:#ef4444;">删</button>
+                </div>
+            </div>
+        `).join('');
+        
+        // 绑定购物车内按钮事件
+        document.querySelectorAll('.cart-decr').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id);
+                updateQuantity(id, -1);
+            });
+        });
+        document.querySelectorAll('.cart-incr').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id);
+                updateQuantity(id, 1);
+            });
+        });
+        document.querySelectorAll('.cart-remove').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.dataset.id);
+                removeFromCart(id);
+            });
+        });
+    }
+    
+    function updateQuantity(id, delta) {
+        const index = cart.findIndex(item => item.id === id);
+        if (index !== -1) {
+            const newQty = cart[index].quantity + delta;
+            if (newQty <= 0) {
+                cart.splice(index, 1);
+            } else {
+                cart[index].quantity = newQty;
+            }
+            saveCart();
+            updateCartUI();
+        }
+    }
+    
+    function removeFromCart(id) {
+        cart = cart.filter(item => item.id !== id);
+        saveCart();
+        updateCartUI();
+    }
+    
+    function addToCart(product) {
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: 1
+            });
+        }
+        saveCart();
+        updateCartUI();
+        // 添加成功动画提示
+        const btn = document.querySelector(`.product-card[data-id="${product.id}"] .add-cart-btn`);
+        if (btn) {
+            btn.style.transform = 'scale(0.95)';
+            setTimeout(() => { btn.style.transform = ''; }, 150);
+        }
+    }
+    
+    function openCart() {
+        cartSidebar.classList.add('open');
+        cartOverlay.classList.add('show');
+    }
+    
+    function closeCart() {
+        cartSidebar.classList.remove('open');
+        cartOverlay.classList.remove('show');
+    }
+    
+    // 显示付款码
+    function showPayModal() {
+        payModal.classList.add('show');
+    }
+    
+    function hidePayModal() {
+        payModal.classList.remove('show');
+    }
+    
+    // 结算
+    function checkout() {
+        if (cart.length === 0) {
+            alert("购物车是空的，请先添加商品");
+            return;
+        }
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        alert(`应付金额: ¥${total.toFixed(2)}\n\n即将为您展示付款码~`);
+        closeCart();
+        showPayModal();
+    }
 
     // 显示大图
     function showFullImage(imgSrc) {
@@ -554,21 +881,18 @@
         }
     }
 
-    // 隐藏大图
     function hideFullImage() {
         imageModal.style.display = 'none';
-        fullscreenImage.src = ''; // 清除避免残留
+        fullscreenImage.src = '';
     }
 
-    // 为图片绑定点击放大事件（动态渲染后调用）
     function bindImageClick() {
         const allImages = document.querySelectorAll('.product-img');
         allImages.forEach(img => {
-            // 避免重复绑定
             if (img.getAttribute('data-listener') === 'true') return;
             img.setAttribute('data-listener', 'true');
             img.addEventListener('click', (e) => {
-                e.stopPropagation();  // 防止冒泡到其他事件
+                e.stopPropagation();
                 const imgSrc = img.getAttribute('src');
                 if (imgSrc) {
                     showFullImage(imgSrc);
@@ -577,7 +901,7 @@
         });
     }
 
-    // 渲染商品卡片
+    // 渲染商品
     function renderProducts(category) {
         const container = document.getElementById('productsContainer');
         const filtered = productsData.filter(p => p.category === category);
@@ -587,12 +911,10 @@
         }
         
         container.innerHTML = filtered.map(product => {
-            // 根据 useIcon 决定显示图标还是图片
             let mediaHtml = '';
             if (product.useIcon) {
                 mediaHtml = `<div class="product-icon"><i class="${product.icon}"></i></div>`;
             } else {
-                // 修改：兼容 image 和 img 字段
                 const imgUrl = product.image || product.img || "https://picsum.photos/id/104/100/100";
                 mediaHtml = `<img class="product-img" src="${imgUrl}" alt="${product.name}" loading="lazy" onerror="this.src='https://picsum.photos/id/26/100/100'">`;
             }
@@ -608,21 +930,33 @@
                 <div class="badges">
                     ${product.badges.map(b => `<span class="badge"><i class="fas fa-check-circle"></i> ${b}</span>`).join('')}
                 </div>
-                <button class="buy-btn" data-name="${product.name}" data-price="${product.price}"><i class="fab fa-weixin"></i> 微信购买</button>
+                <button class="buy-btn" data-name="${product.name}" data-price="${product.price}" data-id="${product.id}"><i class="fab fa-weixin"></i> 微信购买</button>
+                <button class="add-cart-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}"><i class="fas fa-cart-plus"></i> 加入购物车</button>
             </div>
             `;
         }).join('');
 
-        // 绑定购买事件：提示联系QQ
+        // 直接购买：显示付款码
         document.querySelectorAll('.buy-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const name = btn.getAttribute('data-name');
                 const price = btn.getAttribute('data-price');
-                alert(`【${name}】 价格: ¥${price}\n\n请添加QQ客服: 3662269122 获取付款码进行支付。\n支付完成后请发送截图给客服，客服核对后发货。\n\n虚拟商品不退款，下单前请确认。`);
+                alert(`【${name}】 价格: ¥${price}\n\n即将为您展示付款码~`);
+                showPayModal();
             });
         });
         
-        // 新卡片渲染完成后，给所有物资图片添加点击放大事件（以及已自带hover缩放css）
+        // 加入购物车
+        document.querySelectorAll('.add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                const product = productsData.find(p => p.id === id);
+                if (product) {
+                    addToCart(product);
+                }
+            });
+        });
+        
         bindImageClick();
     }
 
@@ -641,29 +975,30 @@
         }
     });
 
-    // QQ客服悬浮按钮
-    const qqBtn = document.getElementById('qqContactBtn');
-    qqBtn.addEventListener('click', () => {
-        alert("🐧 QQ客服: 3662269122\n请复制QQ号添加好友，备注“土豆shop购买”。\n支付通过微信，请联系客服获取付款码。");
+    // 事件绑定
+    document.getElementById('qqContactBtn').addEventListener('click', () => {
+        alert("🐧 QQ客服: 3662269122\n请复制QQ号添加好友，备注“土豆shop购买”。");
         window.open("tencent://message/?uin=3662269122&Site=土豆shop&Menu=yes");
     });
 
-    const chatSupport = document.getElementById('chatSupportBtn');
-    chatSupport.addEventListener('click', () => {
-        alert("💬 在线咨询时间: 3:40-22:30\n如需即时帮助请直接添加QQ:3662269122 留言，客服会尽快回复。\n所有商品仅支持微信支付，请向客服索取付款码。");
+    document.getElementById('chatSupportBtn').addEventListener('click', () => {
+        alert("💬 在线咨询时间: 3:40-22:30\n请直接添加QQ:3662269122");
     });
 
-    // 模态框点击关闭：点击背景或图片区域都可关闭（因为模态框本身有点击事件）
-    imageModal.addEventListener('click', (e) => {
-        // 点击任何地方都关闭（包括背景或图片）
-        hideFullImage();
-    });
-    // 阻止图片上的点击冒泡影响（防止重复关闭无影响，但已统一关闭）
-    fullscreenImage.addEventListener('click', (e) => {
-        e.stopPropagation(); // 不影响关闭，但确保不会误触，由于父级关闭，无需特殊处理
+    document.getElementById('cartIcon').addEventListener('click', openCart);
+    document.getElementById('closeCartBtn').addEventListener('click', closeCart);
+    cartOverlay.addEventListener('click', closeCart);
+    document.getElementById('checkoutBtn').addEventListener('click', checkout);
+    document.getElementById('closePayBtn').addEventListener('click', hidePayModal);
+    payModal.addEventListener('click', (e) => {
+        if (e.target === payModal) hidePayModal();
     });
 
-    // 初始化加载 CFG 分类
+    imageModal.addEventListener('click', hideFullImage);
+    fullscreenImage.addEventListener('click', (e) => e.stopPropagation());
+
+    // 初始化
+    loadCart();
     renderProducts('cfg');
     const defaultActive = document.querySelector('.cat-list li[data-cat="cfg"]');
     if (defaultActive) defaultActive.classList.add('active');
